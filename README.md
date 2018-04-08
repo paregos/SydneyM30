@@ -1,15 +1,13 @@
 # GOING HOME HELLA FAST 
 
-#How to install
+## Features
 
-- Install node.js (with chocolately and powershell on windows)
-- Clone repo
-- cd into repo
-- "npm install --save"
+* COMING SOON
 
+## Installation
 
-#How to run
-
-- cd into repo
-- node server.js
-- navigate to localhost:3010
+* `git clone git@github.com:paregos/SydneyM30.git`
+* cd SydneyM30
+* npm install
+* npm start
+* visit `http://localhost:8080/`

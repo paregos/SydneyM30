@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const title = 'My Minimal React Webpack Babel Setup';
+const title = 'Sydney M30 Bus tracker';
 
 ReactDOM.render(
-  <div>{title}</div>,
+  <div>{title}<div>aaaa</div></div>,
   document.getElementById('app')
 );
 

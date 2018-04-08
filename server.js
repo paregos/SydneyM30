@@ -12,7 +12,7 @@ app.engine('html', require('ejs').renderFile);
 
 
 app.get('*', (req, res) => {
-  res.render('./src/index.html');
+  res.render('./dist/index.html');
 });
 
 // Error handling

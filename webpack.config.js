@@ -22,5 +22,12 @@ module.exports = {
   output: {
     path: __dirname + "/src/",
     filename: "client.min.js"
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    contentBase: "./src",
+    hot: true
   }
 };
