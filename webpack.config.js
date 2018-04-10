@@ -5,7 +5,7 @@ var webpack = require('webpack');
 
 module.exports = {
   context: path.join(__dirname, "src"),
-  devtool: debug ? "inline-sourcemap" : "",
+  devtool: debug ? "inline-sourcemap" : null,
   entry: "./js/client.js",
   module: {
     rules: [
