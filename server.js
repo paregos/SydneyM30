@@ -1,4 +1,5 @@
 const express=require('express');
+var request = require('request');
 
 // Initialisation
 const app=express();
@@ -26,6 +27,22 @@ app.use(function (err, req, res, next) {
 //     console.log('running a task every 5 seconds');
 //     recommendedlisting.calculateRecommendations();
 // });
+
+var url = "https://api.transport.nsw.gov.au/v1/tp/departure_mon?outputFormat=rapidJSON&coordOutputFormat=EPSG%3A4326&mode=direct&type_dm=stop&name_dm=200051&itdDate=20180408&itdTime=1710&departureMonitorMacro=true&TfNSWDM=true&version=10.2.1.42";
+var token = 'apikey sXm3TGx8PqEc5lX6APrEM6ySbPjw0sSTYqHf';
+
+request.get({url,
+    headers : {
+      "Authorization" : token
+    }
+  },
+  function (error, response, body) {
+    if (error) {
+      return console.error('failed:', error);
+    }
+    console.log('Request success:', body);
+  }
+);
 
 var server=app.listen((process.env.PORT || 3010),function(){
 console.log("We have started our server on port " +(process.env.PORT || 3010));
