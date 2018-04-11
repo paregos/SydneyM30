@@ -45,7 +45,7 @@ app.get('/fetchBusData', (req, res) => {
 
           itemsProcessed++;
           if(itemsProcessed === stopEvents.length) {
-            return res.status(409).send(m30List)
+            return res.status(409).send(stopEvents)
           }
         });
 
