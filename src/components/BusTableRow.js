@@ -3,6 +3,7 @@ import React from 'react'
 export default class BusTable extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
   }
 
   componentDidMount() {
@@ -15,10 +16,11 @@ export default class BusTable extends React.Component {
   }
 
   render() {
+    console.log("planned time is "+this.props);
     return (
       <tr>
-        <td>bus time</td>
-        <td>bus time 2</td>
+        <td>{this.props.rowData.departureTimePlanned}}</td>
+        <td>{this.props.rowData.departureTimeEstimated}</td>
       </tr>
     );
   }

@@ -6,28 +6,20 @@ export default class BusTable extends React.Component {
     super(props);
     this.state = {
       busData: [],
-      isLoading: false
+      isLoading: true
     };
   }
 
   componentDidMount() {
     this.setState({ isLoading: true });
+     
+    var url = window.location.href+"fetchBusData"
 
-    var url = "https://api.transport.nsw.gov.au/v1/tp/departure_mon?outputFormat=rapidJSON&coordOutputFormat=EPSG%3A4326&mode=direct&type_dm=stop&name_dm=200051&itdDate=20180408&itdTime=1710&departureMonitorMacro=true&TfNSWDM=true&version=10.2.1.42";
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    var token = 'sXm3TGx8PqEc5lX6APrEM6ySbPjw0sSTYqHf';
-
-    fetch(url, {
-      headers: {
-        // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-        // 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-        // 'Access-Control-Allow-Origin': '*',
-        'Authorization': 'apikey ' + token
-      }
-    })
+    fetch(url)
     .then(response => response.json())
     .then(data => this.setState({ busData: data, isLoading: false }))
     .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"));
+    
   }
 
   componentWillUnmount() {
@@ -38,24 +30,31 @@ export default class BusTable extends React.Component {
     const { busData } = this.state;
     const { isLoading } = this.state;
 
+    var stopEvents = busData ? busData : {};
+
+    console.log("is loading "+isLoading);
+    console.log(stopEvents)
+
     if (isLoading) {
       return <p>Loading ...</p>;
     }
 
+    console.log(stopEvents)
+
     return (
       <div>
         <tr>
-          <th>businfo1</th>
-          <th>businfo2</th> 
+          <th>Departure time planned</th>
+          <th>Departure time estimated</th> 
         </tr>
         <div>
-          {busData}
+          {busData.version}
         </div>
-        {/* {busData.map((rowData, i) => {
+        {stopEvents.map((event, i) => {
             return (
-                <BusTableRow rowData={rowData} />
+                <BusTableRow rowData={event} />
             )
-          })} */}
+          })}
       </div>
     );
   }
