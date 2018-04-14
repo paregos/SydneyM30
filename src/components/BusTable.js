@@ -55,7 +55,17 @@ export default class BusTable extends React.Component {
     console.log("is loading "+isLoading);
 
     if (isLoading) {
-      return <p>Loading ...</p>;
+      return (
+      <div>
+        <p>Loading ...</p>
+        <div class="lds-css ng-scope">
+              <div style={{width:"100%", height:"100%"}} class="lds-eclipse">
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+      </div>
+      )
     }
 
     return (
