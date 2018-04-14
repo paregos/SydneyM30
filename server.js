@@ -45,7 +45,7 @@ app.get('/fetchBusData', (req, res) => {
 
           itemsProcessed++;
           if(itemsProcessed === stopEvents.length) {
-            return res.status(409).send(stopEvents)
+            return res.status(409).send(m30List)
           }
         });
 
@@ -57,17 +57,17 @@ app.get('/fetchBusData', (req, res) => {
 
 function generateDepartureUrl(callback) {
   
-  var url = "https://api.transport.nsw.gov.au/v1/tp/departure_mon?outputFormat=rapidJSON&coordOutputFormat=EPSG%3A4326&mode=direct&type_dm=stop&name_dm=200051&";
+  var url = "https://api.transport.nsw.gov.au/v1/tp/departure_mon?outputFormat=rapidJSON&coordOutputFormat=EPSG%3A4326&mode=direct&type_dm=stop&name_dm=200051&departureMonitorMacro=true&TfNSWDM=true&version=10.2.1.42";
 
-  var now = new Date();
-  var date = dateFormat(now, "yyyymmdd");
-  var time = dateFormat(now, "HHMM");
-  console.log(time)
-  // var time = "0530";
+  // var now = new Date();
+  // var date = dateFormat(now, "yyyymmdd");
+  // var time = dateFormat(now, "HHMM");
+  // console.log(time)
+  // // var time = "0530";
 
-  var fullUrl = url+"itdDate="+date+"&"+"itdTime="+time+"&departureMonitorMacro=true&TfNSWDM=true&version=10.2.1.42";
+  // var fullUrl = url+"itdDate="+date+"&"+"itdTime="+time+"&departureMonitorMacro=true&TfNSWDM=true&version=10.2.1.42";
 
-  callback(fullUrl);
+  callback(url);
 }
 
 app.get('*', (req, res) => {
