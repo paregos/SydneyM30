@@ -1,11 +1,15 @@
 import React from 'react'
 import Moment from 'react-moment';
 import 'moment-timezone';
+import Table, {
+  TableRow,
+  TableRowColumn
+} from 'material-ui/Table';
+
 
 export default class BusTable extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
 
   componentDidMount() {
@@ -18,37 +22,36 @@ export default class BusTable extends React.Component {
   }
 
   render() {
-    console.log("planned time is "+this.props.rowData.departureTimePlanned);
     var timePlanned = this.props.rowData.departureTimePlanned;
     var timeEstiamted = this.props.rowData.departureTimeEstimated;
 
     if(timePlanned && timeEstiamted){
       return(
-        <tr>
-          <td> 
+        <TableRow>
+          <TableRowColumn> 
             <Moment>
               {timePlanned}
             </Moment>
-          </td>
-          <td> 
+          </TableRowColumn>
+          <TableRowColumn> 
             <Moment>
               {timeEstiamted}
             </Moment>
-          </td>
-        </tr>
+          </TableRowColumn>
+        </TableRow>
       );
     } else if (timePlanned){
       return(
-        <tr>
-          <td> 
+        <TableRow>
+          <TableRowColumn> 
             <Moment>
               {timePlanned}
             </Moment>
-          </td>
-        </tr>
+          </TableRowColumn>
+        </TableRow>
       );
     } else {
-      return(<tr></tr>);
+      return(<TableRow></TableRow>);
     }
   }
 }

@@ -18,7 +18,6 @@ app.get('/fetchBusData', (req, res) => {
 
   generateDepartureUrl(function(url){
 
-      console.log("url is "+url)
       var token = 'apikey sXm3TGx8PqEc5lX6APrEM6ySbPjw0sSTYqHf';
       
       request.get({url,

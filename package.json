@@ -25,6 +25,7 @@
   "dependencies": {
     "babel-preset-env": "^1.6.1",
     "dateformat": "^3.0.3",
+    "material-ui": "^0.20.0",
     "moment-timezone": "^0.5.14",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
