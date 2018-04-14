@@ -1,8 +1,10 @@
 #wrapper {
-  background-color: green; /* for vizualization purposes */
   text-align: center;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
 }
 #mainDiv {
-  background-color: red; /* for vizualization purposes */
   display: inline-block;
 }
